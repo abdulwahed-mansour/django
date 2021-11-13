@@ -1,0 +1,84 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}About page{% endblock %}
+
+{% block content %}
+
+
+{% for Product in Product_list %}
+    <div class="card my-4">
+        <div class="row no-gutters">
+            <div class="col-md-3 align-self-center img-fluid card-img-top">
+                <img src="{% static 'images/demo3.jpg' %}" class="mw-100" style="width: 220px; height: auto; alt="...">
+            </div>
+            <div class="col-md-9 ">
+                <div class="card-body ">
+                    
+
+                    <div class="row ">
+                        <div class="col ">
+                            <div class="d-flex justify-content-start text-muted">
+                                <div class="p-1 bd-highlight">Butik</div>
+                                <div class="p-1 bd-highlight">Cars</div>
+                                <div class="p-1 bd-highlight">Stockholm</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex justify-content-end text-muted">
+                                
+                                <div class="p-1 bd-highlight">{{ Product.created|timesince }} ago</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex justify-content-start font-weight-bold">
+                                <div class="p-1 bd-highlight">{{ Product.name }}</div>
+                                <div class="p-1 bd-highlight">{{ Product.category }}</div>
+                                <div class="p-1 bd-highlight">2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex justify-content-start bd-highlight mb-1 text-muted">
+                                <div class="p-1 bd-highlight">{{ Product.Fuel }}</div>
+                                
+                                <div class="p-1 bd-highlight">{{ Product.stock }}</div>
+                                <div class="p-1 bd-highlight">more-filters</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex justify-content-start ">
+                                <div class="p-1 bd-highlight text-success font-weight-bold">{{ Product.price }}</div>
+                                <div class="p-1 bd-highlight text-muted">Skikel</div>
+                                <div class="p-1 bd-highlight text-muted">/Monthly</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex justify-content-end text-muted">
+                                <div class="p-1 bd-highlight">Mansourco CARS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+
+
+
+
+{% endblock content %}
